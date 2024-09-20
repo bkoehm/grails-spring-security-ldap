@@ -38,7 +38,7 @@ import grails.plugins.Plugin
 
 class SpringSecurityLdapGrailsPlugin extends Plugin {
 
-	String grailsVersion = '4.0.0 > *'
+	String grailsVersion = '7.0.0 > *'
 	List loadAfter = ['springSecurityCore']
 	String author = 'Burt Beckwith'
 	String authorEmail = 'burt@burtbeckwith.com'
