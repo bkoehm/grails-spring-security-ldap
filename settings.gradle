@@ -1,1 +1,11 @@
 rootProject.name = 'spring-security-ldap'
+
+include 'functional-test-app'
+include 'misc-functional-test-app-custom_user_details_context_mapper'
+include 'misc-functional-test-app-retrieve-db-roles'
+include 'misc-functional-test-app-retrieve-group-rules'
+
+project(':functional-test-app').projectDir = [settingsDir, 'functional-test-app'] as File
+project(':misc-functional-test-app-custom_user_details_context_mapper').projectDir = [settingsDir, 'misc-functional-test-app/custom_user_details_context_mapper'] as File
+project(':misc-functional-test-app-retrieve-db-roles').projectDir = [settingsDir, 'misc-functional-test-app/retrieve-db-roles'] as File
+project(':misc-functional-test-app-retrieve-group-rules').projectDir = [settingsDir, 'misc-functional-test-app/retrieve-group-rules'] as File

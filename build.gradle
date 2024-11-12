@@ -22,7 +22,7 @@ plugins {
 	id 'java-library'
 }
 
-version = file('version.txt').text.trim()
+version = projectVersion
 group 'org.grails.plugins'
 
 apply plugin: 'org.grails.grails-plugin'
@@ -44,17 +44,22 @@ repositories {
 	maven { url 'https://repo.grails.org/grails/core' }
 }
 
-configurations {
-    all {
-        exclude group: 'javax.servlet'
+subprojects {
+    configurations {
+        all {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details->
+                if (details.requested.group == 'org.seleniumhq.selenium') {
+                    details.useVersion(seleniumVersion)
+                }
+            }
+        }
     }
 }
 
 dependencies {
-
 	runtimeOnly 'org.grails:grails-web-boot'
 
-	api 'org.grails.plugins:spring-security-core:7.0.0-SNAPSHOT'
+	api "org.grails.plugins:spring-security-core:$grailsSpringSecurityCoreVersion"
 
 	api "org.springframework.security:spring-security-ldap:$springSecurityVersion", {
 		['apacheds-core', 'apacheds-core-entry', 'apacheds-protocol-ldap', 'apacheds-protocol-shared',
@@ -76,7 +81,6 @@ dependencies {
 }
 
 apply from: "${rootProject.projectDir}/gradle/testVerbose.gradle"
-apply from: "${rootProject.projectDir}/gradle/groovy-config.gradle"
 
 asciidoctor {
 	sources {
