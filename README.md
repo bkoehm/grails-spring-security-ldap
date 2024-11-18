@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/grails-plugins/grails-spring-security-ldap.svg)](https://travis-ci.org/grails-plugins/grails-spring-security-ldap)
-
 Grails Spring Security LDAP Plugin
 ==================================
 
@@ -19,5 +17,6 @@ See [documentation](https://grails-plugins.github.io/grails-spring-security-ldap
 
 Branches:
 
-- `master` Grails 4 compatible versions.
+- '5.0.x' Grails 7 compatible versions.
+- '4.0.x' Grails 4 compatible versions.
 - `3.x` Grails 3 compatible versions.
